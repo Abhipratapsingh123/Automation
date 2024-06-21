@@ -1,32 +1,33 @@
-# Selenium is used to automate browser actions
-
 from selenium import webdriver
-from selenium.webdriver.common.by import By
 import time
 
 
-def get_driver():
+def get_drvier():
   # Set options to make browsing easier
   options = webdriver.ChromeOptions()
-  options.add_argument("disable_infobars")
-  options.add_argument("start-maximised")
+  options.add_argument("disable-infobars")
+  options.add_argument("start-maximized")
   options.add_argument("disable-dev-shm-usage")
   options.add_argument("no-sandbox")
   options.add_experimental_option("excludeSwitches", ["enable-automation"])
-  options.add_argument("disable-blink-features = AutomationControlled")
+  options.add_argument("disable-blink-features=AutomationControlled")
 
   driver = webdriver.Chrome(options=options)
-  driver.get("https://www.timeanddate.com/weather/")
+  driver.get("http://automated.pythonanywhere.com")
   return driver
 
 
+def clean_text(text):
+  """Extract only the temperature from text"""
+  output = float(text.split(": ")[1])
+  return output
+
+
 def main():
-  driver = get_driver()
+  driver = get_drvier()
   time.sleep(2)
-  element=driver.find_element(By.XPATH,"/html/body/div[5]/section[1]/div/div/div[1]/div/div[2]")
-  text = element.text
-  driver.quit()  # Make sure to close the browser after finishing
-  return text
+  element = driver.find_element(by="xpath",value="/html/body/div[1]/div/h1[2]")
+  return clean_text(element.text)
 
 
 print(main())
