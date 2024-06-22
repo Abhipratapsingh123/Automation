@@ -1,4 +1,4 @@
-entrypoint = "Practice_login_rakuten.py"
+entrypoint = "practice_titan22.py"
 modules = ["python-3.10:v18-20230807-322e88b"]
 
 [nix]
@@ -11,5 +11,5 @@ language = "python3"
 requiredFiles = [".replit", "replit.nix"]
 
 [deployment]
-run = ["python3", "Practice_login_rakuten.py"]
+run = ["python3", "practice_titan22.py"]
 deploymentTarget = "cloudrun"
