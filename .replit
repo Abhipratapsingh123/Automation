@@ -1,4 +1,4 @@
-entrypoint = "practice_titan22.py"
+entrypoint = "Scrape_real_time_currency_byBeautifulsoup.py"
 modules = ["python-3.10:v18-20230807-322e88b"]
 
 [nix]
@@ -11,5 +11,5 @@ language = "python3"
 requiredFiles = [".replit", "replit.nix"]
 
 [deployment]
-run = ["python3", "practice_titan22.py"]
+run = ["python3", "Scrape_real_time_currency_byBeautifulsoup.py"]
 deploymentTarget = "cloudrun"
